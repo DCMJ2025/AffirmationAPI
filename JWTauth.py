@@ -3,7 +3,6 @@ import datetime
 from flask import current_app
 
 
-
 def create_token(tradeID: int):
     now = datetime.datetime.now()
     exp = now + datetime.timedelta(seconds= current_app.config['JWT_EXPIRATION_SECONDS'])
@@ -12,7 +11,8 @@ def create_token(tradeID: int):
         "sub":  str(tradeID),
         "iss": current_app.config["JWT_ISSUER"],
         "iat": int(now.timestamp()),
-        "exp": int(exp.timestamp())
+        "exp": int(exp.timestamp()),
+        "isSecure": True,
     }
 
     print("Payload:", payload)

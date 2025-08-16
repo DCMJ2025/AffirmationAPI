@@ -1,11 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
+from extensions import db
 
-db = SQLAlchemy()
+#db = SQLAlchemy()
 
 class TradeData(db.Model):
     __tablename__ = 'tradedata'  # existing table name
-#Id, InsertDate, TradeEventDate, TradeRef, Amount, BaseEventType, CounterPartyName,
-# CounterPartyEmail, ConfirmationType
     id = db.Column(db.Integer, primary_key=True)
     insertDate = db.Column(db.DateTime)
     tradeEventDate = db.Column(db.DateTime)
